@@ -291,23 +291,7 @@ miner    default  1      True   0.00000  0.00000  0.00000    0.00000    0.00000 
 
 ```
 
-## 13. Run subnet miner and subnet validator
-
-Run the subnet miner and subnet validator. Make sure to specify your subnet parameters.
-
-Run the subnet miner:
-
-```bash
-python neurons/miner.py --netuid 1 --subtensor.chain_endpoint ws://127.0.0.1:9946 --wallet.name miner --wallet.hotkey default --logging.debug
-```
-
-Run the subnet validator:
-
-```bash
-python neurons/validator.py --netuid 1 --subtensor.chain_endpoint ws://127.0.0.1:9946 --wallet.name validator --wallet.hotkey default --logging.debug
-```
-
-## 14. Set weights for your subnet
+## 13. Set weights for your subnet
 
 Register a validator on the root subnet and boost to set weights for your subnet. This is a necessary step to ensure that the subnet is able to receive emmissions.
 
@@ -322,7 +306,7 @@ btcli root register --wallet.name validator --wallet.hotkey default --subtensor.
 btcli root boost --netuid 1 --increase 1 --wallet.name validator --wallet.hotkey default --subtensor.chain_endpoint ws://127.0.0.1:9946
 ```
 
-## 15. Verify your incentive mechanism
+## 14. Verify your incentive mechanism
 
 After a few blocks the subnet validator will set weights. This indicates that the incentive mechanism is active. Then after a subnet tempo elapses (360 blocks or 72 minutes) you will see your incentive mechanism beginning to distribute TAO to the subnet miner.
 

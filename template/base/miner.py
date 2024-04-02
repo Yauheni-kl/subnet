@@ -15,14 +15,14 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 # DEALINGS IN THE SOFTWARE.
 
-import time
-import torch
+import argparse
 import asyncio
 import threading
-import argparse
+import time
 import traceback
 
 import bittensor as bt
+import torch
 
 from template.base.neuron import BaseNeuron
 from template.utils.config import add_miner_args
@@ -186,7 +186,12 @@ class BaseMinerNeuron(BaseNeuron):
 
     def resync_metagraph(self):
         """Resyncs the metagraph and updates the hotkeys and moving averages based on the new metagraph."""
-        bt.logging.info("resync_metagraph()")
 
         # Sync the metagraph.
         self.metagraph.sync(subtensor=self.subtensor)
+
+    def load_state(self):
+        pass
+
+    def save_state(self):
+        pass
